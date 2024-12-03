@@ -1,18 +1,11 @@
-package com.simpleProject.Springboot_EmployeeManagementSystem.entity;
+package com.simpleProject.Springboot_EmployeeManagementSystem.dto;
 
-import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDateTime;
 
-
-@Entity
 @Data
-@Table(name="Department")
-public class Department {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class DepartmentDto {
     private int departmentId;
     private String departmentName;
 

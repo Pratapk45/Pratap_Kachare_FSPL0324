@@ -13,7 +13,7 @@ public class Designation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int designationId;
-    private String DesignationName;
+    private String designationName;
 
     private boolean isActive;
     private String createdBy;
