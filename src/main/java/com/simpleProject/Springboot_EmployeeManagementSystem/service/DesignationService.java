@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DesignationService {
@@ -27,5 +29,19 @@ public class DesignationService {
         designation.setUpdatedDate(LocalDateTime.now());
 
         return designationReository.save(designation);
+    }
+
+    public List<Designation> getAllDesignation() {
+        List<Designation> designationList = designationReository.findAll();
+        return designationList;
+    }
+
+    public Designation deleteDesihnation(int designationId) {
+        Optional<Designation> optional = designationReository.findById(designationId);
+        if(optional.isEmpty()){
+            return null;
+        }
+        designationReository.deleteById(designationId);
+        return optional.get();
     }
 }
